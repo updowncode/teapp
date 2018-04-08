@@ -1,0 +1,42 @@
+{
+  "name": "rn-ts-boiler",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "clean": "node node_modules/react-native/local-cli/cli.js start --reset-cache",
+    "ios": "node node_modules/react-native/local-cli/cli.js run-ios",
+    "android": "node node_modules/react-native/local-cli/cli.js run-android",
+    "test": "jest",
+    "lint": "tslint 'src/**/*.ts?(x)'"
+  },
+  "dependencies": {
+    "@types/react-navigation": "^1.2.3",
+    "native-base": "^2.4.1",
+    "react": "16.3.0-alpha.2",
+    "react-native": "^0.54.2",
+    "react-navigation": "^1.5.8",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
+    "redux-form": "^7.3.0",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^22.2.0",
+    "@types/react": "^16.0.40",
+    "@types/react-native": "^0.52.18",
+    "@types/react-redux": "^5.0.15",
+    "babel-jest": "23.0.0-alpha.0",
+    "babel-preset-react-native": "4.0.0",
+    "jest": "22.4.2",
+    "prettier": "1.11.1",
+    "react-native-typescript-transformer": "^1.2.3",
+    "react-test-renderer": "^16.3.0-alpha.2",
+    "tslint": "^5.9.1",
+    "tslint-config-prettier": "^1.10.0",
+    "typescript": "^2.7.2"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
