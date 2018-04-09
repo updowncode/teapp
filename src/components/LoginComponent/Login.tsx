@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Image, Platform } from 'react-native';
+import { Image, Platform,TouchableOpacity } from 'react-native';
 import {
   Container,
   Content,
@@ -11,6 +11,7 @@ import {
   View,
   Icon,
   Footer,
+  
 } from 'native-base';
 //import styles from "./styles";
 export interface Props {
@@ -45,9 +46,14 @@ class Login extends React.Component<Props, State> {
         <Content>
           {this.props.loginForm}
           <View padder>
-            <Button block onPress={() => this.props.onLogin()}>
+          <TouchableOpacity onPress={() => this.props.onLogin()}>
+      <View>
+        <Text>Login</Text>
+      </View>
+    </TouchableOpacity>
+            {/* <Button block onPress={() => this.props.onLogin()}>
               <Text>Login</Text>
-            </Button>
+            </Button> */}
           </View>
         </Content>
         <Footer style={{ backgroundColor: '#F8F8F8' }}>

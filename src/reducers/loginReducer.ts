@@ -6,6 +6,7 @@ import IStoreState from '../store/IStoreState';
 const loginReducer = (state = initialState, action: ActionTypes) => {
   switch (action.type) {
     case ActionTypeKeys.LOGIN:
+   
       return onLogin(state);
     default:
       return state;

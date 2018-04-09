@@ -63,7 +63,7 @@ class LoginSimple extends Component<ILogin, AppStates> {//<ILoginProps>
   onLogin(username, password) {
       console.log('Username:', this.state.username);
     console.log('Password:', this.state.password);
-    this.props.doLogin(username,password);
+    this.props.doLogin(this.state.username,this.state.password);
 
   }
 

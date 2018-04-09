@@ -60244,7 +60244,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   }(_react2.Component));
 
   exports.default = App;
-},490,[111,179,491,519,818],"src\\App.tsx");
+},490,[111,179,491,519,817],"src\\App.tsx");
 __d(function (global, _require, module, exports, _dependencyMap) {
   'use strict';
 
@@ -74338,299 +74338,13 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-
-  var _react2 = _require(_dependencyMap[0], "react");
-
-  var _react3 = _interopRequireDefault(_react2);
-
-  var _index = _require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
-
-  var _index2 = _interopRequireDefault(_index);
-
-  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-  var _LoginContainer = _require(_dependencyMap[2], "../containers/LoginContainer");
-
-  var _LoginContainer2 = _interopRequireDefault(_LoginContainer);
-
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-  var _components = {
-    LoginScreen: {
-      displayName: "LoginScreen"
-    }
-  };
-
-  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
-    filename: "C:/SourceCode/TEMobileApps/tsreport/src/screens/LoginScreen.tsx",
-    components: _components,
-    locals: [module],
-    imports: [_react3.default]
-  });
-
-  function _wrapComponent(id) {
-    return function (Component) {
-      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
-    };
-  }
-
-  var LoginScreen = _wrapComponent("LoginScreen")(function (_Component) {
-    _inherits(LoginScreen, _Component);
-
-    function LoginScreen() {
-      _classCallCheck(this, LoginScreen);
-
-      return _possibleConstructorReturn(this, (LoginScreen.__proto__ || Object.getPrototypeOf(LoginScreen)).apply(this, arguments));
-    }
-
-    _createClass(LoginScreen, [{
-      key: "render",
-      value: function render() {
-        return _react3.default.createElement(_LoginContainer2.default, null);
-      }
-    }]);
-
-    return LoginScreen;
-  }(_react2.Component));
-
-  exports.default = LoginScreen;
-  LoginScreen.navigationOptions = {
-    header: null
-  };
-},601,[111,179,602],"src\\screens\\LoginScreen.tsx");
-__d(function (global, _require, module, exports, _dependencyMap) {
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-
-  var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-  var _reactRedux = _require(_dependencyMap[0], "react-redux");
-
-  var _redux = _require(_dependencyMap[1], "redux");
-
-  var _loginAction = _require(_dependencyMap[2], "../actions/loginAction");
-
-  var _LoginSimple = _require(_dependencyMap[3], "../components/LoginSimple");
-
-  var _LoginSimple2 = _interopRequireDefault(_LoginSimple);
-
-  var _signedStatus = _require(_dependencyMap[4], "../selectors/signedStatus");
-
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-  var mapStateToProps = function mapStateToProps(state) {
-    return {
-      signedIn: (0, _signedStatus.signedIn)(state),
-      username: state.username,
-      password: state.password,
-      signinMsg: state.signinMsg
-    };
-  };
-
-  var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return {
-      onLogin: (0, _redux.bindActionCreators)(_loginAction.login, dispatch),
-      onUserNameChanged: (0, _redux.bindActionCreators)(_loginAction.usernameChanged, dispatch),
-      onPasswordChanged: (0, _redux.bindActionCreators)(_loginAction.passwordChanged, dispatch)
-    };
-  };
-
-  var mergeProps = function mergeProps(stateProps, dispatchProps, ownProps) {
-    return _extends({}, ownProps, stateProps, dispatchProps);
-  };
-
-  exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps, mergeProps)(_LoginSimple2.default);
-},602,[491,502,603,605,817],"src\\containers\\LoginContainer.tsx");
-__d(function (global, _require, module, exports, _dependencyMap) {
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.passwordChanged = exports.usernameChanged = undefined;
-  exports.login = login;
-
-  var _ActionTypeKeys = _require(_dependencyMap[0], "./ActionTypeKeys");
-
-  var _ActionTypeKeys2 = _interopRequireDefault(_ActionTypeKeys);
-
-  var _types = _require(_dependencyMap[1], "./types");
-
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-  function login() {
-    return {
-      type: _ActionTypeKeys2.default.LOGIN
-    };
-  }
-
-  var usernameChanged = exports.usernameChanged = function usernameChanged(username) {
-    return {
-      type: _types.USERNAME_CHANGED,
-      username: username
-    };
-  };
-
-  var passwordChanged = exports.passwordChanged = function passwordChanged(password) {
-    return {
-      type: _types.PASSWORD_CHANGED,
-      password: password
-    };
-  };
-},603,[597,604],"src\\actions\\loginAction.ts");
-__d(function (global, _require, module, exports, _dependencyMap) {
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
   var USERNAME_CHANGED = exports.USERNAME_CHANGED = 'username_changed';
   var PASSWORD_CHANGED = exports.PASSWORD_CHANGED = 'password_changed';
   var LOGIN_USER_SUCCESS = exports.LOGIN_USER_SUCCESS = 'login_user_success';
   var LOGIN_USER_FAIL = exports.LOGIN_USER_FAIL = 'login_user_fail';
   var LOGIN_USER = exports.LOGIN_USER = 'login_user';
+  var SET_LOADING = exports.SET_LOADING = 'APP/SET_LOADING';
 },604,[],"src\\actions\\types.ts");
-__d(function (global, _require, module, exports, _dependencyMap) {
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-
-  var _react2 = _require(_dependencyMap[0], "react");
-
-  var _react3 = _interopRequireDefault(_react2);
-
-  var _index = _require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
-
-  var _index2 = _interopRequireDefault(_index);
-
-  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-  var _reactNative = _require(_dependencyMap[2], "react-native");
-
-  var _nativeBase = _require(_dependencyMap[3], "native-base");
-
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-  var _components = {
-    LoginSimple: {
-      displayName: "LoginSimple"
-    }
-  };
-
-  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
-    filename: "C:/SourceCode/TEMobileApps/tsreport/src/components/LoginSimple.tsx",
-    components: _components,
-    locals: [module],
-    imports: [_react3.default]
-  });
-
-  function _wrapComponent(id) {
-    return function (Component) {
-      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
-    };
-  }
-
-  var LoginSimple = _wrapComponent("LoginSimple")(function (_Component) {
-    _inherits(LoginSimple, _Component);
-
-    function LoginSimple() {
-      _classCallCheck(this, LoginSimple);
-
-      return _possibleConstructorReturn(this, (LoginSimple.__proto__ || Object.getPrototypeOf(LoginSimple)).apply(this, arguments));
-    }
-
-    _createClass(LoginSimple, [{
-      key: "onUserNameChange",
-      value: function onUserNameChange(text) {
-        this.props.onUserNameChanged(text);
-      }
-    }, {
-      key: "onPasswordChange",
-      value: function onPasswordChange(text) {
-        this.props.onPasswordChanged(text);
-      }
-    }, {
-      key: "render",
-      value: function render() {
-        return _react3.default.createElement(_nativeBase.Container, null, _react3.default.createElement(_nativeBase.Header, {
-          style: {
-            height: 200
-          }
-        }, _react3.default.createElement(_nativeBase.Body, {
-          style: {
-            alignItems: 'center'
-          }
-        }, _react3.default.createElement(_reactNative.Image, {
-          source: _require(_dependencyMap[4], '../../assets/images/te-logo.png')
-        }), _react3.default.createElement(_nativeBase.View, {
-          padder: true
-        }, _react3.default.createElement(_nativeBase.Text, {
-          style: {
-            color: _reactNative.Platform.OS === 'ios' ? '#000' : '#FFF'
-          }
-        })), _react3.default.createElement(_nativeBase.Title, null, "Daily Report"), _react3.default.createElement(_nativeBase.View, {
-          padder: true
-        }, _react3.default.createElement(_nativeBase.Text, {
-          style: {
-            color: _reactNative.Platform.OS === 'ios' ? '#000' : '#FFF'
-          }
-        })))), _react3.default.createElement(_nativeBase.Content, null, _react3.default.createElement(_nativeBase.Input, {
-          label: 'Username',
-          placeholder: 'Username',
-          onChangeText: this.onUserNameChange.bind(this),
-          value: this.props.username
-        }), _react3.default.createElement(_nativeBase.Input, {
-          label: 'Password',
-          placeholder: 'Password',
-          onChangeText: this.onPasswordChange.bind(this),
-          secureTextEntry: true,
-          value: this.props.password
-        }), _react3.default.createElement(_nativeBase.Text, {
-          style: {
-            fontSize: 18,
-            color: 'red',
-            alignSelf: 'center'
-          }
-        }, this.props.signinMsg), _react3.default.createElement(_nativeBase.View, {
-          padder: true
-        }, _react3.default.createElement(_nativeBase.Button, {
-          block: true,
-          onPress: this.props.onLogin
-        }, _react3.default.createElement(_nativeBase.Text, null, "Login")))), _react3.default.createElement(_nativeBase.Footer, {
-          style: {
-            backgroundColor: '#F8F8F8'
-          }
-        }, _react3.default.createElement(_nativeBase.View, {
-          style: {
-            alignItems: 'center',
-            opacity: 0.5,
-            flexDirection: 'row'
-          }
-        }, _react3.default.createElement(_nativeBase.View, {
-          padder: true
-        }, _react3.default.createElement(_nativeBase.Text, {
-          style: {
-            color: '#000',
-            fontSize: 12
-          }
-        }, "\xA9Copyright 2018 Tour East Holidays (Canada) Inc.")))));
-      }
-    }]);
-
-    return LoginSimple;
-  }(_react2.Component));
-
-  exports.default = LoginSimple;
-},605,[111,179,12,606,816],"src\\components\\LoginSimple.tsx");
 __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -118625,27 +118339,6 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   exports.Subtitle = StyledSubtitle;
 },815,[111,130,12,607,686],"node_modules\\native-base\\dist\\src\\basic\\Subtitle.js");
 __d(function (global, _require, module, exports, _dependencyMap) {
-  module.exports = _require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
-    "__packager_asset": true,
-    "httpServerLocation": "/assets/assets/images",
-    "width": 77,
-    "height": 66,
-    "scales": [1],
-    "hash": "771e96afa6225b63b6fa15f0cb70aaac",
-    "name": "te-logo",
-    "type": "png"
-  });
-},816,[164],"assets\\images\\te-logo.png");
-__d(function (global, _require, module, exports, _dependencyMap) {
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-
-  var signedIn = exports.signedIn = function signedIn(state) {
-    return state.signedIn;
-  };
-},817,[],"src\\selectors\\signedStatus.ts");
-__d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
@@ -118667,7 +118360,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   };
 
   exports.default = configureStore;
-},818,[502,819,820],"src\\store\\configureStore.ts");
+},817,[502,818,819],"src\\store\\configureStore.ts");
 __d(function (global, _require, module, exports, _dependencyMap) {
   'use strict';
 
@@ -118692,7 +118385,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   var thunk = createThunkMiddleware();
   thunk.withExtraArgument = createThunkMiddleware;
   exports['default'] = thunk;
-},819,[],"node_modules\\redux-thunk\\lib\\index.js");
+},818,[],"node_modules\\redux-thunk\\lib\\index.js");
 __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -118720,7 +118413,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     textChange: _textChange2.default
   });
   exports.default = rootReducer;
-},820,[502,821,823,824],"src\\reducers\\rootReducer.ts");
+},819,[502,820,822,823],"src\\reducers\\rootReducer.ts");
 __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -118761,7 +118454,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   };
 
   exports.default = counterReducer;
-},821,[597,822],"src\\reducers\\counterReducer.ts");
+},820,[597,821],"src\\reducers\\counterReducer.ts");
 __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -118774,7 +118467,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     signinMsg: ""
   };
   exports.default = defaultState;
-},822,[],"src\\reducers\\initialState.ts");
+},821,[],"src\\reducers\\initialState.ts");
 __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -118826,7 +118519,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   };
 
   exports.default = loginReducer;
-},823,[597,822],"src\\reducers\\loginReducer.ts");
+},822,[597,821],"src\\reducers\\loginReducer.ts");
 __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -118882,6 +118575,335 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   };
 
   exports.default = textChangeReducer;
-},824,[822,604],"src\\reducers\\textChange.ts");
+},823,[821,604],"src\\reducers\\textChange.ts");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _react2 = _require(_dependencyMap[0], "react");
+
+  var _react3 = _interopRequireDefault(_react2);
+
+  var _index = _require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
+
+  var _index2 = _interopRequireDefault(_index);
+
+  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+  var _LoginContainer = _require(_dependencyMap[2], "../containers/LoginContainer");
+
+  var _LoginContainer2 = _interopRequireDefault(_LoginContainer);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+  var _components = {
+    LoginScreen: {
+      displayName: "LoginScreen"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: "C:/SourceCode/TEMobileApps/tsreport/src/screens/LoginScreen.tsx",
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var LoginScreen = _wrapComponent("LoginScreen")(function (_Component) {
+    _inherits(LoginScreen, _Component);
+
+    function LoginScreen() {
+      _classCallCheck(this, LoginScreen);
+
+      return _possibleConstructorReturn(this, (LoginScreen.__proto__ || Object.getPrototypeOf(LoginScreen)).apply(this, arguments));
+    }
+
+    _createClass(LoginScreen, [{
+      key: "render",
+      value: function render() {
+        return _react3.default.createElement(_LoginContainer2.default, null);
+      }
+    }]);
+
+    return LoginScreen;
+  }(_react2.Component));
+
+  exports.default = LoginScreen;
+  LoginScreen.navigationOptions = {
+    header: null
+  };
+},601,[111,179,602],"src\\screens\\LoginScreen.tsx");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+  var _reactRedux = _require(_dependencyMap[0], "react-redux");
+
+  var _redux = _require(_dependencyMap[1], "redux");
+
+  var _loginAction = _require(_dependencyMap[2], "../actions/loginAction");
+
+  var _LoginSimple = _require(_dependencyMap[3], "../components/LoginSimple");
+
+  var _LoginSimple2 = _interopRequireDefault(_LoginSimple);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  var mapStateToProps = function mapStateToProps(state) {
+    return {
+      username: state.username,
+      password: state.password
+    };
+  };
+
+  var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+      doLogin: (0, _redux.bindActionCreators)(function (username, password) {
+        return (0, _loginAction.login)(username, password);
+      }, dispatch)
+    };
+  };
+
+  var mergeProps = function mergeProps(stateProps, dispatchProps, ownProps) {
+    return _extends({}, ownProps, stateProps, dispatchProps);
+  };
+
+  exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps, mergeProps)(_LoginSimple2.default);
+},602,[491,502,603,605],"src\\containers\\LoginContainer.tsx");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.passwordChanged = exports.usernameChanged = exports.login = undefined;
+
+  var _ActionTypeKeys = _require(_dependencyMap[0], "./ActionTypeKeys");
+
+  var _ActionTypeKeys2 = _interopRequireDefault(_ActionTypeKeys);
+
+  var _types = _require(_dependencyMap[1], "./types");
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  var login = exports.login = function login(username, password) {
+    return function (dispatch) {
+      setTimeout(function () {
+        dispatch({
+          type: _ActionTypeKeys2.default.LOGIN,
+          payload: {
+            username: username,
+            password: password,
+            fullname: "david"
+          }
+        });
+      }, 3000);
+    };
+  };
+
+  var usernameChanged = exports.usernameChanged = function usernameChanged(username) {
+    return {
+      type: _types.USERNAME_CHANGED,
+      username: username
+    };
+  };
+
+  var passwordChanged = exports.passwordChanged = function passwordChanged(password) {
+    return {
+      type: _types.PASSWORD_CHANGED,
+      password: password
+    };
+  };
+},603,[597,604],"src\\actions\\loginAction.ts");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _react2 = _require(_dependencyMap[0], "react");
+
+  var _react3 = _interopRequireDefault(_react2);
+
+  var _index = _require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
+
+  var _index2 = _interopRequireDefault(_index);
+
+  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+  var _reactNative = _require(_dependencyMap[2], "react-native");
+
+  var _nativeBase = _require(_dependencyMap[3], "native-base");
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+  var _components = {
+    LoginSimple: {
+      displayName: "LoginSimple"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: "C:/SourceCode/TEMobileApps/tsreport/src/components/LoginSimple.tsx",
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var LoginSimple = _wrapComponent("LoginSimple")(function (_Component) {
+    _inherits(LoginSimple, _Component);
+
+    function LoginSimple(props) {
+      _classCallCheck(this, LoginSimple);
+
+      var _this = _possibleConstructorReturn(this, (LoginSimple.__proto__ || Object.getPrototypeOf(LoginSimple)).call(this, props));
+
+      _this.onLogin = _this.onLogin.bind(_this);
+      _this.state = {
+        username: "",
+        password: ""
+      };
+      return _this;
+    }
+
+    _createClass(LoginSimple, [{
+      key: "onUserNameChange",
+      value: function onUserNameChange(text) {
+        this.props.onUserNameChanged(text);
+      }
+    }, {
+      key: "onPasswordChange",
+      value: function onPasswordChange(text) {
+        this.props.onPasswordChanged(text);
+      }
+    }, {
+      key: "onLogin",
+      value: function onLogin(username, password) {
+        console.log('Username:', this.state.username);
+        console.log('Password:', this.state.password);
+        this.props.doLogin(username, password);
+      }
+    }, {
+      key: "render",
+      value: function render() {
+        var _this2 = this;
+
+        return _react3.default.createElement(_nativeBase.Container, null, _react3.default.createElement(_nativeBase.Header, {
+          style: {
+            height: 200
+          }
+        }, _react3.default.createElement(_nativeBase.Body, {
+          style: {
+            alignItems: 'center'
+          }
+        }, _react3.default.createElement(_reactNative.Image, {
+          source: _require(_dependencyMap[4], '../../assets/images/te-logo.png')
+        }), _react3.default.createElement(_nativeBase.View, {
+          padder: true
+        }, _react3.default.createElement(_nativeBase.Text, {
+          style: {
+            color: _reactNative.Platform.OS === 'ios' ? '#000' : '#FFF'
+          }
+        })), _react3.default.createElement(_nativeBase.Title, null, "Daily Report"), _react3.default.createElement(_nativeBase.View, {
+          padder: true
+        }, _react3.default.createElement(_nativeBase.Text, {
+          style: {
+            color: _reactNative.Platform.OS === 'ios' ? '#000' : '#FFF'
+          }
+        })))), _react3.default.createElement(_nativeBase.Content, null, _react3.default.createElement(_nativeBase.Input, {
+          label: 'Username',
+          placeholder: 'Username',
+          onChangeText: function onChangeText(username) {
+            return _this2.setState({
+              username: username
+            });
+          },
+          value: this.state.username
+        }), _react3.default.createElement(_nativeBase.Input, {
+          label: 'Password',
+          placeholder: 'Password',
+          onChangeText: function onChangeText(password) {
+            return _this2.setState({
+              password: password
+            });
+          },
+          value: this.state.password,
+          secureTextEntry: true
+        }), _react3.default.createElement(_nativeBase.Text, {
+          style: {
+            fontSize: 18,
+            color: 'red',
+            alignSelf: 'center'
+          }
+        }), _react3.default.createElement(_nativeBase.Button, {
+          block: true,
+          onPress: function onPress() {
+            return _this2.onLogin(_this2.state.username, _this2.state.password);
+          }
+        }, _react3.default.createElement(_nativeBase.Text, null, "Login")), _react3.default.createElement(_nativeBase.View, {
+          padder: true
+        })), _react3.default.createElement(_nativeBase.Footer, {
+          style: {
+            backgroundColor: '#F8F8F8'
+          }
+        }, _react3.default.createElement(_nativeBase.View, {
+          style: {
+            alignItems: 'center',
+            opacity: 0.5,
+            flexDirection: 'row'
+          }
+        }, _react3.default.createElement(_nativeBase.View, {
+          padder: true
+        }, _react3.default.createElement(_nativeBase.Text, {
+          style: {
+            color: '#000',
+            fontSize: 12
+          }
+        }, "\xA9Copyright 2018 Tour East Holidays (Canada) Inc.")))));
+      }
+    }]);
+
+    return LoginSimple;
+  }(_react2.Component));
+
+  exports.default = LoginSimple;
+},605,[111,179,12,606,816],"src\\components\\LoginSimple.tsx");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  module.exports = _require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
+    "__packager_asset": true,
+    "httpServerLocation": "/assets/assets/images",
+    "width": 77,
+    "height": 66,
+    "scales": [1],
+    "hash": "771e96afa6225b63b6fa15f0cb70aaac",
+    "name": "te-logo",
+    "type": "png"
+  });
+},816,[164],"assets\\images\\te-logo.png");
 require(23);
 require(11);//# sourceMappingURL=index.map

@@ -6,7 +6,7 @@ import MainScreen from './screens/MainScreen';
 import LoginScreen from './screens/LoginScreen';
 const MyNavigator = StackNavigator(
   {
-    Login: { screen: LoginScreen,  },
+     Login: { screen: LoginScreen,  },
     Main: {
       screen: MainScreen,
     },
