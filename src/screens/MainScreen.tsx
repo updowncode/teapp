@@ -1,40 +1,35 @@
-import React, { Component } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+// import React, { Component } from 'react';
+
+// import MainContainer from '../containers/MainContainer';
+// import { NavigationScreenProp } from 'react-navigation';
+// import Main
+// export default class MainScreen extends Component {
+//   render() {
+//     return <MainContainer />;
+//   }
+// }
+import { connect, Dispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { decrement } from '../actions/counterActions';
+import MainComponent from '../components/MainComponent';
+import IStoreState from '../store/IStoreState';
 import { NavigationScreenProp } from 'react-navigation';
 
-interface IMainProps {
-  navigation: NavigationScreenProp<any, any>;
-}
-
-export default class Main extends Component<IMainProps> {
-  static navigationOptions = {
-    header: null,
-  };
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Select Report Type
-        </Text>
-        <Button
-          title="Next"
-          onPress={() => this.props.navigation.navigate('Counter')}
-        />
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    backgroundColor: '#72ba3a',
-    flex: 1,
-    justifyContent: 'center',
-  },
-  welcome: {
-    fontSize: 20,
-    margin: 10,
-    textAlign: 'center',
-  },
+const mapStateToProps = (state: IStoreState) => ({
+    signedIn: state.signedIn
 });
+
+const mapDispatchToProps = (dispatch: Dispatch<IStoreState>) => ({
+    doLogout:bindActionCreators(decrement, dispatch),
+});
+
+const mergeProps = (
+  stateProps: object,
+  dispatchProps: object,
+  navigation: NavigationScreenProp<any, any>
+) => ({ navigation, ...stateProps, ...dispatchProps });
+
+export const MainScreen = connect(mapStateToProps, mapDispatchToProps, mergeProps)(
+    MainComponent
+);

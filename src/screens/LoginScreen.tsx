@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 import LoginContainer from '../containers/LoginContainer';
 
-interface ILoginProps {}
-export default class LoginScreen extends Component<ILoginProps> {
+export default class LoginScreen extends Component {
   static navigationOptions = {
     header: null,
   };
+ 
   render() {
-    return <LoginContainer />;
+    return <LoginContainer/>;
   }
 }

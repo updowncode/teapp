@@ -1,12 +1,9 @@
 import { StackNavigator } from 'react-navigation';
 
 import CounterScreen from './screens/CounterScreen';
-import MainScreen from './screens/MainScreen';
-// import LoginScreen from './containers/LoginContainer';
-import LoginScreen from './screens/LoginScreen';
+import {MainScreen} from './screens/MainScreen';
 const MyNavigator = StackNavigator(
   {
-     Login: { screen: LoginScreen,  },
     Main: {
       screen: MainScreen,
     },
@@ -15,9 +12,7 @@ const MyNavigator = StackNavigator(
     },
   },
   {
-    initialRouteName: 'Login',
-    ////For all screens's header
-    //headerMode: "none",
+    initialRouteName: 'Main',
   }
 );
 

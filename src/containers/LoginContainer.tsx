@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 
 import { login, usernameChanged, passwordChanged } from '../actions/loginAction';
 import LoginSimple from '../components/LoginSimple';
-import { signedIn } from '../selectors/signedStatus';
+import { signedIn } from '../selectors/counterSelector';
 
 import IStoreState from '../store/IStoreState';
 import LoginFirst from '../components/loginfirst'
@@ -46,7 +46,5 @@ const mergeProps = (
   ownProps: object
 ) => ({ ...ownProps, ...stateProps, ...dispatchProps });
 
-export default connect(mapStateToProps, mapDispatchToProps, mergeProps)( 
-  LoginSimple
-);
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(LoginSimple);
 
