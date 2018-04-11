@@ -1,6 +1,12 @@
 //import * as React from 'react';
 import React, { Component } from 'react';
-import { StyleSheet,Image, Platform,TouchableOpacity,TextInput } from 'react-native';
+import {
+  StyleSheet,
+  Image,
+  Platform,
+  TouchableOpacity,
+  TextInput,
+} from 'react-native';
 import {
   Container,
   Content,
@@ -13,86 +19,95 @@ import {
   Icon,
   Footer,
   Input,
-} from 'native-base'; 
-//import styles from "../components/LoginComponent/styles";
-// export interface ILoginProps {
-//     signedIn?: boolean,
-//     username?: string,
-//     password?: string,
-//     signinMsg?: string,
+} from 'native-base';
 
-//     onLogin?: () => void;
-//     onUserNameChanged?: (username) => void;
-//     onPasswordChanged?: (password) => void;
-//   }
-
-
-  export interface ILogin {
-    username?: string,
-    password?: string,
-    onUserNameChanged?: (username) => void;
-    onPasswordChanged?: (password) => void;
-    doLogin?: (username: string, password: string) => void;
-  }
-  export interface AppStates {
-    username: string; 
-    password: string;
-  }
-class LoginSimple extends Component<ILogin,AppStates> {//<ILoginProps>
+export interface ILogin {
+  username?: string;
+  password?: string;
+  onUserNameChanged?: (username) => void;
+  onPasswordChanged?: (password) => void;
+  doLogin?: (username: string, password: string) => void;
+}
+export interface AppStates {
+  username: string;
+  password: string;
+}
+class LoginSimple extends Component<ILogin, AppStates> {
   constructor(props) {
-    super(props)
+    super(props);
     this.onLogin = this.onLogin.bind(this);
-		// init local state
     this.state = {
       username: this.props.username,
-      password: this.props.password
-    }
+      password: this.props.password,
+    };
   }
-  onUserNameChange(text) {
-   // this.state =Object.assign({}, this.state, { username: text })
-    this.props.onUserNameChanged(text);
-
-  }
-
-  onPasswordChange(text) {
-  //  this.state=Object.assign({}, this.state, { password: text })
-    this.props.onPasswordChanged(text);
-  }
-  // onLogin(username, password){
-  //   this.props.doLogin(username, password);
-
-  // }
   onLogin(username, password) {
-    console.log('Username:', this.state.username);
-    console.log('Password:', this.state.password);
-    this.props.doLogin(username,password);
-
+    this.props.doLogin(username, password);
   }
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Login</Text>
-         <TextInput
-          onChangeText={username => this.setState({ username })}
-          value={this.state.username}
-        />
-        <TextInput
-          onChangeText={password => this.setState({ password })}
-          value={this.state.password}
-        />
-          <Button block onPress={() => this.onLogin(this.state.username, this.state.password)}><Text>Login</Text></Button>
-          <Text>username: {this.props.username}</Text>
-      </View>
+      <Container>
+        <Header style={{ height: 200 }}>
+          <Body style={{ alignItems: 'center' }}>
+            <Image
+              source={require('../../assets/images/te-logo.png')}
+              style={{ width: 80, height: 80 }}
+            />
+            <View padder>
+              <Text
+                style={{ color: Platform.OS === 'ios' ? '#000' : '#FFF' }}
+              />
+            </View>
+            <Title>Daily Report</Title>
+            <View padder>
+              <Text
+                style={{ color: Platform.OS === 'ios' ? '#000' : '#FFF' }}
+              />
+            </View>
+          </Body>
+        </Header>
+        <Content>
+          <Input
+            label={'Username'}
+            placeholder={'Username'}
+            onChangeText={username => this.setState({ username })}
+            value={this.state.username}
+          />
 
+          <Input
+            label={'Password'}
+            placeholder={'Password'}
+            onChangeText={password => this.setState({ password })}
+            value={this.state.password}
+            secureTextEntry={true}
+          />
+          <Text style={{ fontSize: 18, color: 'red', alignSelf: 'center' }}>
+            {/* {this.props.signinMsg} */}
+          </Text>
+          <Button
+            block
+            onPress={() =>
+              this.onLogin(this.state.username, this.state.password)
+            }
+          >
+            <Text>Login</Text>
+          </Button>
+          <View padder />
+        </Content>
+        <Footer style={{ backgroundColor: '#F8F8F8' }}>
+          <View
+            style={{ alignItems: 'center', opacity: 0.5, flexDirection: 'row' }}
+          >
+            <View padder>
+              <Text style={{ color: '#000', fontSize: 12 }}>
+                ©Copyright 2018 Tour East Holidays (Canada) Inc.
+              </Text>
+            </View>
+          </View>
+        </Footer>
+      </Container>
     );
   }
 }
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fff',
-    justifyContent: 'center'
-  }
-})
-
 export default LoginSimple;

@@ -1,12 +1,11 @@
-import { connect, Dispatch } from 'react-redux';
+import { Dispatch, connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
-import { login, usernameChanged, passwordChanged } from '../actions/loginAction';
+import { login } from '../actions/loginAction';
 import LoginSimple from '../components/LoginSimple';
 import { signedIn } from '../selectors/counterSelector';
-
 import IStoreState from '../store/IStoreState';
-import LoginFirst from '../components/loginfirst'
+
+
 
 //import * as React from 'react';
 // import React, { Component } from 'react';

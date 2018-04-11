@@ -6,11 +6,11 @@ import Counter from '../components/Counter';
 import { counter } from '../selectors/counterSelector';
 import IStoreState from '../store/IStoreState';
 
-const mapStateToProps = (state: IStoreState) => ({
+const mapStateToProps = (state: any) => ({
   counter: counter(state),
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<IStoreState>) => ({
+const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
   onDecrement: bindActionCreators(decrement, dispatch),
   onIncrement: bindActionCreators(increment, dispatch),
 });

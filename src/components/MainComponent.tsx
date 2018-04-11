@@ -1,29 +1,25 @@
 import React, { Component } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { NavigationScreenProp } from 'react-navigation';
-import LoginScreen from '../screens/LoginScreen';
 interface IMainComponentProps {
   navigation: NavigationScreenProp<any, any>;
-  signedIn?:boolean;
+  signedIn?: boolean;
   doLogout?: () => void;
 }
 
 export default class MainComponent extends Component<IMainComponentProps> {
-  static navigationOptions = {
-    header: null,
-  };
+  // static navigationOptions = { header: null,};
   render() {
-
-    if (!this.props.signedIn) {
-      return <LoginScreen />;
-    }  
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Select Report Type</Text>
+        <Text style={styles.welcome}>
+          {this.props.signedIn ? 'Signed In' : ''}
+        </Text>
         <Button
           title="Next"
           onPress={() => this.props.navigation.navigate('Counter')}
         />
+        <Button title="Logout" onPress={() => this.props.doLogout()} />
       </View>
     );
   }

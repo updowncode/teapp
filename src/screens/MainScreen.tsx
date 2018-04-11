@@ -1,5 +1,4 @@
 // import React, { Component } from 'react';
-
 // import MainContainer from '../containers/MainContainer';
 // import { NavigationScreenProp } from 'react-navigation';
 // import Main
@@ -8,16 +7,15 @@
 //     return <MainContainer />;
 //   }
 // }
-import { connect, Dispatch } from 'react-redux';
+import { Dispatch, connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
 import { decrement } from '../actions/counterActions';
 import MainComponent from '../components/MainComponent';
 import IStoreState from '../store/IStoreState';
-import { NavigationScreenProp } from 'react-navigation';
 
-const mapStateToProps = (state: IStoreState) => ({
-    signedIn: state.signedIn
+
+const mapStateToProps = (state: any) => ({
+    signedIn: state.login.signedIn
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<IStoreState>) => ({
@@ -26,9 +24,9 @@ const mapDispatchToProps = (dispatch: Dispatch<IStoreState>) => ({
 
 const mergeProps = (
   stateProps: object,
-  dispatchProps: object,
-  navigation: NavigationScreenProp<any, any>
-) => ({ navigation, ...stateProps, ...dispatchProps });
+  dispatchProps: object,// 
+  ownProps: object
+) => ({ ...ownProps, ...stateProps, ...dispatchProps });
 
 export const MainScreen = connect(mapStateToProps, mapDispatchToProps, mergeProps)(
     MainComponent

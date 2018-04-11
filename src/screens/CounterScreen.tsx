@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 
 import CounterContainer from '../containers/CounterContainer';
 
-interface ICounterProps {}
-export default class CounterScreen extends Component<ICounterProps> {
+export default class CounterScreen extends Component<any> {
   render() {
     return <CounterContainer />;
   }

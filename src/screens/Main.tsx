@@ -1,37 +1,27 @@
 import React, { Component } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
-import { NavigationScreenProp } from 'react-navigation';
-import LoginScreen from '../screens/LoginScreen';
-import IStoreState from '../store/IStoreState';
-import { connect, Dispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { StyleSheet } from 'react-native';
+import { Dispatch, connect } from 'react-redux';
 import { decrement } from '../actions/counterActions';
+import MyNavigator from '../navigation';
+import LoginScreen from '../screens/LoginScreen';
 import { signedIn } from '../selectors/counterSelector';
+import IStoreState from '../store/IStoreState';
 interface IMains {
-  navigation: NavigationScreenProp<any, any>;
+  //navigation: NavigationScreenProp<any, any>;
   signedIn?: boolean;
   username?: string;// doLogout?: () => void;
 }
 
 class MainComp extends Component<IMains,IStoreState> {
+  
   render() {
     if (!this.props.signedIn) {
       return (
-        <View>
-          <LoginScreen />
-          <Text>signedIn: {this.props.signedIn}</Text>
-        </View>
+        <LoginScreen />
       );
     }
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Select Report Type</Text>
-
-        <Button
-          title="Next"
-          onPress={() => this.props.navigation.navigate('Counter')}
-        />
-      </View>
+       <MyNavigator />
     );
   }
 }

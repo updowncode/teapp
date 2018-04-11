@@ -1,8 +1,6 @@
 import ActionTypeKeys from '../actions/ActionTypeKeys';
 import ActionTypes from '../actions/ActionTypes';
 import initialState from './initialState';
-import IStoreState from '../store/IStoreState';
-
 export const loginReducer = (state = initialState, action: ActionTypes) => {
   switch (action.type) {
     case ActionTypeKeys.LOGIN:
