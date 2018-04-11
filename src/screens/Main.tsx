@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux';
 import { decrement } from '../actions/counterActions';
 import { signedIn } from '../selectors/counterSelector';
 interface IMains {
-  // navigation: NavigationScreenProp<any, any>;
+  navigation: NavigationScreenProp<any, any>;
   signedIn?: boolean;
   username?: string;// doLogout?: () => void;
 }
@@ -27,10 +27,10 @@ class MainComp extends Component<IMains,IStoreState> {
       <View style={styles.container}>
         <Text style={styles.welcome}>Select Report Type</Text>
 
-        {/* <Button
+        <Button
           title="Next"
           onPress={() => this.props.navigation.navigate('Counter')}
-        /> */}
+        />
       </View>
     );
   }

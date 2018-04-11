@@ -62064,6 +62064,8 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     _createClass(MainComp, [{
       key: "render",
       value: function render() {
+        var _this2 = this;
+
         if (!this.props.signedIn) {
           return _react3.default.createElement(_reactNative.View, null, _react3.default.createElement(_LoginScreen2.default, null), _react3.default.createElement(_reactNative.Text, null, "signedIn: ", this.props.signedIn));
         }
@@ -62072,7 +62074,12 @@ __d(function (global, _require, module, exports, _dependencyMap) {
           style: styles.container
         }, _react3.default.createElement(_reactNative.Text, {
           style: styles.welcome
-        }, "Select Report Type"));
+        }, "Select Report Type"), _react3.default.createElement(_reactNative.Button, {
+          title: "Next",
+          onPress: function onPress() {
+            return _this2.props.navigation.navigate('Counter');
+          }
+        }));
       }
     }]);
 
