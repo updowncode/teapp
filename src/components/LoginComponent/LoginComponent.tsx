@@ -1,27 +1,8 @@
-//import * as React from 'react';
+import { Body, Button, Container, Content, Footer, Header, Input, Text, Title, View } from 'native-base';
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Image,
-  Platform,
-  TouchableOpacity,
-  TextInput,
-} from 'react-native';
-import {
-  Container,
-  Content,
-  Header,
-  Body,
-  Title,
-  Button,
-  Text,
-  View,
-  Icon,
-  Footer,
-  Input,
-} from 'native-base';
+import { Image, Platform } from 'react-native';
 
-export interface ILogin {
+export interface ILoginComponent {
   username?: string;
   password?: string;
   onUserNameChanged?: (username) => void;
@@ -32,7 +13,7 @@ export interface AppStates {
   username: string;
   password: string;
 }
-class LoginSimple extends Component<ILogin, AppStates> {
+class LoginComponent extends Component<ILoginComponent, AppStates> {
   constructor(props) {
     super(props);
     this.onLogin = this.onLogin.bind(this);
@@ -51,7 +32,7 @@ class LoginSimple extends Component<ILogin, AppStates> {
         <Header style={{ height: 200 }}>
           <Body style={{ alignItems: 'center' }}>
             <Image
-              source={require('../../assets/images/te-logo.png')}
+              source={require('../../../assets/images/te-logo.png')}
               style={{ width: 80, height: 80 }}
             />
             <View padder>
@@ -110,4 +91,4 @@ class LoginSimple extends Component<ILogin, AppStates> {
     );
   }
 }
-export default LoginSimple;
+export default LoginComponent;

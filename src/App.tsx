@@ -1,28 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
-import MyNavigator from './navigation';
-import {MainScreen} from './screens/MainScreen';
-import {Mains} from './screens/Main';
+import { MainContainer } from './containers/MainContainer';
 import configureStore from './store/configureStore';
 const store = configureStore();
 const App = () => {
   return (
     <Provider store={store}>
-      {/* <MyNavigator /> */}
-      <Mains />
+      <MainContainer />
     </Provider>
   )
 }
-
 export default App;
-
-// export default class App extends Component {
-//   render() {
-//     return (
-//       <Provider store={store}>
-//         {/* <MyNavigator /> */}
-//         <MainScreen />
-//       </Provider>
-//     );
-//   }
-// }

@@ -1,28 +1,9 @@
 import { Dispatch, connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { login } from '../actions/loginAction';
-import LoginSimple from '../components/LoginSimple';
+import LoginComponent from '../components/LoginComponent/LoginComponent';
 import { signedIn } from '../selectors/counterSelector';
 import IStoreState from '../store/IStoreState';
-
-
-
-//import * as React from 'react';
-// import React, { Component } from 'react';
-// import { Image, Platform,TouchableOpacity,TextInput } from 'react-native';
-// import {
-//   Container,
-//   Content,
-//   Header,
-//   Body,
-//   Title,
-//   Button,
-//   Text,
-//   View,
-//   Icon,
-//   Footer,
-//   Input,
-// } from 'native-base'; 
 const mapStateToProps = (state: any) => ({
    signedIn: signedIn(state),
   username: state.login.username,
@@ -32,11 +13,9 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<IStoreState>) => ({
- // onLogin: bindActionCreators(login, dispatch),
-  //  onUserNameChanged: bindActionCreators(usernameChanged, dispatch),
-  //  onPasswordChanged: bindActionCreators(passwordChanged, dispatch),
-   doLogin: bindActionCreators((username, password) =>login(username, password), dispatch),
-//doLogin: (username, password) =>dispatch(login(username, password))
+  doLogin: bindActionCreators((username, password) =>login(username, password), dispatch),
+// onLogin: bindActionCreators(login, dispatch),
+// doLogin: (username, password) =>dispatch(login(username, password))
 });
 
 const mergeProps = (
@@ -45,5 +24,5 @@ const mergeProps = (
   ownProps: object
 ) => ({ ...ownProps, ...stateProps, ...dispatchProps });
 
-export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(LoginSimple);
+export const LoginContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(LoginComponent);
 

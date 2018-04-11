@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { NavigationScreenProp } from 'react-navigation';
+import styles from "./styles";
 interface IMainComponentProps {
   navigation: NavigationScreenProp<any, any>;
   signedIn?: boolean;
   doLogout?: () => void;
 }
 
-export default class MainComponent extends Component<IMainComponentProps> {
+export default class HomeComponent extends Component<IMainComponentProps> {
   // static navigationOptions = { header: null,};
   render() {
     return (
@@ -24,17 +25,3 @@ export default class MainComponent extends Component<IMainComponentProps> {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    backgroundColor: '#72ba3a',
-    flex: 1,
-    justifyContent: 'center',
-  },
-  welcome: {
-    fontSize: 20,
-    margin: 10,
-    textAlign: 'center',
-  },
-});
