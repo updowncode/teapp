@@ -1,12 +1,12 @@
 import { applyMiddleware, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-
-import rootReducer from '../reducers/rootReducer';
+import initialState from '../reducers/initialState';
+import {rootReducer} from '../reducers/rootReducer';
 import IStoreState from './IStoreState';
 
-const configureStore = () => {
-  return createStore<IStoreState>(
-    rootReducer,
+const configureStore = (data:object={}) => {
+  return createStore(
+    rootReducer, data,
     applyMiddleware(thunkMiddleware)
   );
 };

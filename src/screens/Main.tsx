@@ -10,10 +10,10 @@ import { signedIn } from '../selectors/counterSelector';
 interface IMains {
   // navigation: NavigationScreenProp<any, any>;
   signedIn?: boolean;
-  // doLogout?: () => void;
+  username?: string;// doLogout?: () => void;
 }
 
-class MainComponent extends Component<IMains> {
+class MainComp extends Component<IMains,IStoreState> {
   render() {
     if (!this.props.signedIn) {
       return (
@@ -48,14 +48,17 @@ const mergeProps = (
 ) => ({ ...ownProps, ...stateProps, ...dispatchProps });
 
 export const Mains = connect(
-  (state: IStoreState) => ({
+  (state: any) => ({
     signedIn: signedIn(state),
+    username:state.login.username,
+    password: state.login.password,
+     signinMsg: state.login.signinMsg
   }),
   (dispatch: Dispatch<IStoreState>) => ({
     doLogout: () => dispatch(decrement()),
   }),
   mergeProps
-)(MainComponent);
+)(MainComp);
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',

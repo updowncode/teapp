@@ -35,17 +35,17 @@ import {
     doLogin?: (username: string, password: string) => void;
   }
   export interface AppStates {
-    username: string;
+    username: string; 
     password: string;
   }
-class LoginSimple extends Component<ILogin, AppStates> {//<ILoginProps>
+class LoginSimple extends Component<ILogin,AppStates> {//<ILoginProps>
   constructor(props) {
     super(props)
     this.onLogin = this.onLogin.bind(this);
 		// init local state
     this.state = {
-      username: "",
-      password: ""
+      username: this.props.username,
+      password: this.props.password
     }
   }
   onUserNameChange(text) {
@@ -73,7 +73,7 @@ class LoginSimple extends Component<ILogin, AppStates> {//<ILoginProps>
     return (
       <View style={styles.container}>
         <Text>Login</Text>
-        <TextInput
+         <TextInput
           onChangeText={username => this.setState({ username })}
           value={this.state.username}
         />

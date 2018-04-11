@@ -9,26 +9,26 @@ import IStoreState from '../store/IStoreState';
 import LoginFirst from '../components/loginfirst'
 
 //import * as React from 'react';
-import React, { Component } from 'react';
-import { Image, Platform,TouchableOpacity,TextInput } from 'react-native';
-import {
-  Container,
-  Content,
-  Header,
-  Body,
-  Title,
-  Button,
-  Text,
-  View,
-  Icon,
-  Footer,
-  Input,
-} from 'native-base'; 
-const mapStateToProps = (state: IStoreState) => ({
-//   signedIn: signedIn(state),
-  username: state.username,
-  password: state.password,
-//   signinMsg: state.signinMsg,
+// import React, { Component } from 'react';
+// import { Image, Platform,TouchableOpacity,TextInput } from 'react-native';
+// import {
+//   Container,
+//   Content,
+//   Header,
+//   Body,
+//   Title,
+//   Button,
+//   Text,
+//   View,
+//   Icon,
+//   Footer,
+//   Input,
+// } from 'native-base'; 
+const mapStateToProps = (state: any) => ({
+   signedIn: signedIn(state),
+  username: state.login.username,
+  password: state.login.password,
+   signinMsg: state.login.signinMsg,
 //loading: false
 });
 
