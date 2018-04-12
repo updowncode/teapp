@@ -1,19 +1,21 @@
 import keys from './ActionTypeKeys';
-import { NavigationActions } from 'react-navigation'
+
 import {
-    USERNAME_CHANGED,
-    PASSWORD_CHANGED,
     LOGIN,
   } from './types'
-export interface ILoginAction {
-  readonly type: keys.LOGIN;
-  payload
-}
-// export function login(): ILoginAction {
-//   return {
-//     type: keys.LOGIN,
-//   };
-// }
+  import * as types from './types'
+
+  /**
+   * Set loading status on/off
+   * @param {boolean} yes Loading status
+   */
+  export const loading = (yes: boolean = true) => {
+    return {
+      type: types.SET_LOADING,
+      payload: yes
+    }
+  }
+  
 export const login = (username: string, password: string) => {
   // async call
   return dispatch => {
@@ -56,16 +58,7 @@ export const login = (username: string, password: string) => {
     }, 3000)
   }
 }
-export const usernameChanged = username => ({
-    type: USERNAME_CHANGED,
-    username
-  })
-  
-  export const passwordChanged = password => ({
-    type: PASSWORD_CHANGED,
-    password
-  })
-   
+
   export const loginAction = (payload) => ({
     type: LOGIN,
     payload

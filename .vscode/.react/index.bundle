@@ -62069,6 +62069,9 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     ActionTypeKeys["INCREMENT"] = "INCREMENT";
     ActionTypeKeys["DECREMENT"] = "DECREMENT";
     ActionTypeKeys["LOGIN"] = "LOGIN";
+    ActionTypeKeys["LOGIN_USER_SUCCESS"] = "LOGIN_USER_SUCCESS";
+    ActionTypeKeys["LOGIN_USER_FAIL"] = "LOGIN_USER_FAIL";
+    ActionTypeKeys["LOGIN_USER"] = "LOGIN";
   })(ActionTypeKeys || (ActionTypeKeys = {}));
 
   exports.default = ActionTypeKeys;
@@ -74341,7 +74344,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.loginAction = exports.passwordChanged = exports.usernameChanged = exports.login = undefined;
+  exports.loginAction = exports.login = exports.loading = undefined;
 
   var _ActionTypeKeys = _require(_dependencyMap[0], "./ActionTypeKeys");
 
@@ -74349,7 +74352,19 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _types = _require(_dependencyMap[1], "./types");
 
+  var types = _interopRequireWildcard(_types);
+
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  var loading = exports.loading = function loading() {
+    var yes = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+    return {
+      type: types.SET_LOADING,
+      payload: yes
+    };
+  };
 
   var login = exports.login = function login(username, password) {
     return function (dispatch) {
@@ -74366,20 +74381,6 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     };
   };
 
-  var usernameChanged = exports.usernameChanged = function usernameChanged(username) {
-    return {
-      type: _types.USERNAME_CHANGED,
-      username: username
-    };
-  };
-
-  var passwordChanged = exports.passwordChanged = function passwordChanged(password) {
-    return {
-      type: _types.PASSWORD_CHANGED,
-      password: password
-    };
-  };
-
   var loginAction = exports.loginAction = function loginAction(payload) {
     return {
       type: _types.LOGIN,
@@ -74391,8 +74392,6 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  var USERNAME_CHANGED = exports.USERNAME_CHANGED = 'username_changed';
-  var PASSWORD_CHANGED = exports.PASSWORD_CHANGED = 'password_changed';
   var LOGIN_USER_SUCCESS = exports.LOGIN_USER_SUCCESS = 'login_user_success';
   var LOGIN_USER_FAIL = exports.LOGIN_USER_FAIL = 'login_user_fail';
   var LOGIN_USER = exports.LOGIN_USER = 'login_user';
@@ -118556,8 +118555,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   var configureStore = function configureStore() {
-    var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    return (0, _redux.createStore)(_rootReducer.rootReducer, data, (0, _redux.applyMiddleware)(_reduxThunk2.default));
+    return (0, _redux.createStore)(_rootReducer.rootReducer, (0, _redux.applyMiddleware)(_reduxThunk2.default));
   };
 
   exports.default = configureStore;
@@ -118673,6 +118671,8 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _initialState2 = _interopRequireDefault(_initialState);
 
+  var _types = _require(_dependencyMap[2], "../actions/types");
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   var loginReducer = exports.loginReducer = function loginReducer() {
@@ -118695,7 +118695,38 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
     ;
   };
-},824,[521,823],"src/reducers/loginReducer.ts");
+
+  var textChangeReducer = function textChangeReducer() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _initialState2.default;
+    var action = arguments[1];
+    console.log(action);
+
+    switch (action.type) {
+      case _types.LOGIN_USER:
+        return _extends({}, state, {
+          loading: true,
+          error: ''
+        });
+
+      case _types.LOGIN_USER_SUCCESS:
+        return _extends({}, state, _initialState2.default, {
+          user: action.user
+        });
+
+      case _types.LOGIN_USER_FAIL:
+        return _extends({}, state, {
+          error: 'Authentication Failed.',
+          password: '',
+          loading: false
+        });
+
+      default:
+        return state;
+    }
+  };
+
+  exports.default = textChangeReducer;
+},824,[521,823,606],"src/reducers/loginReducer.ts");
 __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true

@@ -1,12 +1,5 @@
 import keys from './ActionTypeKeys';
-
-export interface IDecrementAction {
-  readonly type: keys.DECREMENT;
-}
-
-export interface IIncrementAction {
-  readonly type: keys.INCREMENT;
-}
+import {IDecrementAction, IIncrementAction} from './ActionTypes';
 
 export function decrement(): IDecrementAction {
   return {
