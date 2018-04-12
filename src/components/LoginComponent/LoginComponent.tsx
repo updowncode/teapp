@@ -1,4 +1,4 @@
-import { Body, Button, Container, Content, Footer, Header, Input, Text, Title, View } from 'native-base';
+import { Body, Button, Container, Content, Footer, Header, Input, Text, Title, View, Icon } from 'native-base';
 import React, { Component } from 'react';
 import { Image, Platform } from 'react-native';
 
@@ -31,21 +31,9 @@ class LoginComponent extends Component<ILoginComponent, AppStates> {
       <Container>
         <Header style={{ height: 200 }}>
           <Body style={{ alignItems: 'center' }}>
-            <Image
-              source={require('../../../assets/images/te-logo.png')}
-              style={{ width: 80, height: 80 }}
-            />
-            <View padder>
-              <Text
-                style={{ color: Platform.OS === 'ios' ? '#000' : '#FFF' }}
-              />
-            </View>
-            <Title>Daily Report</Title>
-            <View padder>
-              <Text
-                style={{ color: Platform.OS === 'ios' ? '#000' : '#FFF' }}
-              />
-            </View>
+          < Icon name='document' style={{fontSize: 104, color: 'white'}}/>
+            {/* <Image source={require('../../../assets/images/te-logo.ico')} style={{ width: 80, height: 80 }} /> */}
+            <Title style={{color: Platform.OS === 'ios' ? '#000' : '#FFF'}}>Daily Report</Title>
           </Body>
         </Header>
         <Content>
@@ -64,7 +52,6 @@ class LoginComponent extends Component<ILoginComponent, AppStates> {
             secureTextEntry={true}
           />
           <Text style={{ fontSize: 18, color: 'red', alignSelf: 'center' }}>
-            {/* {this.props.signinMsg} */}
           </Text>
           <Button
             block
