@@ -1,6 +1,6 @@
 import { Dispatch, connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { decrement } from '../actions/counterActions';
+import { logout } from '../actions/loginAction';
 import HomeComponent from '../components/HomeComponent/HomeComponent';
 import IStoreState from '../store/IStoreState';
 
@@ -9,7 +9,7 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<IStoreState>) => ({
-  doLogout: bindActionCreators(decrement, dispatch),
+  doLogout: bindActionCreators(logout, dispatch),
 });
 
 const mergeProps = (

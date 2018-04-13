@@ -1,6 +1,6 @@
 import ActionTypeKeys from '../actions/ActionTypeKeys';
 import ActionTypes from '../actions/ActionTypes';
-import initialState from './initialState';
+import initialState from '../store/initialState';
 
 export const counterReducer = (state = initialState.counter, action: ActionTypes) => {
   switch (action.type) {

@@ -1,45 +1,40 @@
 import ActionTypeKeys from '../actions/ActionTypeKeys';
 import ActionTypes from '../actions/ActionTypes';
-import initialState from './initialState';
-import {
-  LOGIN_USER_SUCCESS,
-  LOGIN_USER_FAIL,
-  LOGIN_USER
-} from '../actions/types'
+import initialState from '../store/initialState';
+
 export const loginReducer = (state = initialState, action: ActionTypes) => {
   switch (action.type) {
-    case ActionTypeKeys.LOGIN:
-      const p = action.payload;
+    case ActionTypeKeys.LOADING:
       return Object.assign({}, state, {
-        username: p.username,
-        password: p.password,
-        signedIn: true,
-        signinMsg: p.fullname,
+        ...state,
+        loading: action.payload,
+        signinMsg: '',
       });
-    // case LOGIN_USER:
-    //   return { ...state, loading: true, error: '' }
-    // case LOGIN_USER_SUCCESS:
-    //   return { ...state, ...initialState, user: action.user }
-    // case LOGIN_USER_FAIL:
-    //   return { ...state, error: 'Authentication Failed.', password: '', loading: false }
+    case ActionTypeKeys.LOGIN:
+      return Object.assign({}, state, {
+        ...state,
+        loading: true,
+        signinMsg: '',
+      });
+    case ActionTypeKeys.LOGOUT:
+      return Object.assign({}, state, { ...state, signedIn: false, signinMsg: "" });
+    case ActionTypeKeys.LOGINSUCCESS:
+      return Object.assign({}, state, {
+        ...state,
+        username: action.payload.username,
+        signinMsg: action.payload.fullname,
+        signedIn: true,
+        loading: false,
+      });
+    case ActionTypeKeys.LOGINFAIL:
+      return Object.assign({}, state, {
+        ...state,
+        signinMsg: action.payload,
+        password: '',
+        signedIn: false,
+        loading: false,
+      });
     default:
       return state;
-  };
-};
-
-
-const textChangeReducer = (state = initialState, action) => {
-  console.log(action)
-  switch (action.type) {
-    case LOGIN_USER:
-      return { ...state, loading: true, error: '' }
-    case LOGIN_USER_SUCCESS:
-      return { ...state, ...initialState, user: action.user }
-    case LOGIN_USER_FAIL:
-      return { ...state, error: 'Authentication Failed.', password: '', loading: false }
-    default:
-      return state
   }
 };
-
-export default textChangeReducer;

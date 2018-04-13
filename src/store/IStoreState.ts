@@ -4,4 +4,5 @@ export default interface IStoreState {
    username: string;
    password: string;
    signinMsg: string;
+   loading: boolean;
 };

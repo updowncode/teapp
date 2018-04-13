@@ -5,6 +5,9 @@ import { Image, Platform } from 'react-native';
 export interface ILoginComponent {
   username?: string;
   password?: string;
+  loading: boolean;
+  signedIn: boolean;
+  signinMsg?:string;
   onUserNameChanged?: (username) => void;
   onPasswordChanged?: (password) => void;
   doLogin?: (username: string, password: string) => void;
@@ -61,6 +64,8 @@ class LoginComponent extends Component<ILoginComponent, AppStates> {
           >
             <Text>Login</Text>
           </Button>
+          <Text>{this.props.loading ? "Loading...":""}</Text>
+          <Text>{this.props.signedIn == false ? this.props.signinMsg : ""}</Text>
           <View padder />
         </Content>
         <Footer style={{ backgroundColor: '#F8F8F8' }}>

@@ -9,13 +9,11 @@ const mapStateToProps = (state: any) => ({
   username: state.login.username,
   password: state.login.password,
    signinMsg: state.login.signinMsg,
-//loading: false
+  loading: state.login.loading
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<IStoreState>) => ({
-  doLogin: bindActionCreators((username, password) =>login(username, password), dispatch),
-// onLogin: bindActionCreators(login, dispatch),
-// doLogin: (username, password) =>dispatch(login(username, password))
+  doLogin: bindActionCreators((username, password) =>login(username, password), dispatch), //(username, password) =>dispatch(login(username, password))
 });
 
 const mergeProps = (

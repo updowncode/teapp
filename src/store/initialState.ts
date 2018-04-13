@@ -6,6 +6,7 @@ const defaultState: IStoreState = {
   username: '',
   password: '',
   signinMsg:"",
+  loading: false
 };
 
 export default defaultState;
