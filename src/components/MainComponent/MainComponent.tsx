@@ -21,6 +21,7 @@ export const MainStackNavigator = StackNavigator(
 interface IMainContainer {
   signedIn?: boolean;
   username?: string;
+  signinMsg?: string;
 }
 
 export class MainComponent extends Component<IMainContainer, IStoreState> {

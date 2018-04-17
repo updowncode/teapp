@@ -6,6 +6,7 @@ import IStoreState from '../store/IStoreState';
 
 const mapStateToProps = (state: any) => ({
   signedIn: state.login.signedIn,
+  signinMsg: state.login.signinMsg,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<IStoreState>) => ({

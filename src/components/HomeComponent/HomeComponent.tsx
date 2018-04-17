@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+
+
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { NavigationScreenProp } from 'react-navigation';
 import styles from "./styles";
 interface IMainComponentProps {
   navigation: NavigationScreenProp<any, any>;
   signedIn?: boolean;
+  signinMsg?: string;
   doLogout?: () => void;
 }
 
@@ -14,7 +17,7 @@ export default class HomeComponent extends Component<IMainComponentProps> {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          {this.props.signedIn ? 'Signed In' : ''}
+          {this.props.signedIn ? this.props.signinMsg : ''}
         </Text>
         <Button
           title="Next"
