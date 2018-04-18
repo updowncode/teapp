@@ -10,12 +10,15 @@ interface IMainComponentProps {
   signinMsg?: string;
   doLogout?: () => void;
 }
+interface AppStates {
+  reportListArr: any[];
 
-export default class HomeComponent extends Component<IMainComponentProps> {
+}
+export default class HomeComponent extends Component<IMainComponentProps,AppStates> {
   constructor(props) {
     super(props);
   }
-  reportListArr = [];
+
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state;
     return {
@@ -42,7 +45,8 @@ export default class HomeComponent extends Component<IMainComponentProps> {
         return response.text();
       })
       .then(function(json) {
-        this.reportListArr = JSON.parse(json);
+        let a = JSON.parse(json);
+        a.maps(item=>this.state.reportListArr.push(item));
       })
       .catch(function(ex) {
         this.props.signinMsg = ex.message;
@@ -60,7 +64,7 @@ export default class HomeComponent extends Component<IMainComponentProps> {
           onPress={() => this.props.navigation.navigate('Counter')}
         /> */}
         <FlatList
-          data={this.reportListArr}
+          data={this.state.reportListArr}
           renderItem={({ item }) => <Text  style={styles.touchable}>{item.name}</Text>}
         />
       </View>

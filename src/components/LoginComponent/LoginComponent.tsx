@@ -1,19 +1,6 @@
-import {
-  Body,
-  Button,
-  Container,
-  Content,
-  Footer,
-  Header,
-  Input,
-  Text,
-  Title,
-  View,
-  Icon,
-} from 'native-base';
+import { Body, Button, Container, Content, Footer, Header, Icon, Input, Text, Title, View } from 'native-base';
 import React, { Component } from 'react';
-import { ActivityIndicator, Image, Platform } from 'react-native';
-import styles from "./styles";
+import { ActivityIndicator, Platform } from 'react-native';
 export interface ILoginComponent {
   username?: string;
   password?: string;

@@ -11,6 +11,7 @@ const styles: any = StyleSheet.create({
 		right: 0,
 		backgroundColor: "#FBFAFA",
 	},
+
 	shadow: {
 		flex: 1,
 		width: undefined,
