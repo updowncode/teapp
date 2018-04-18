@@ -1,9 +1,9 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
       alignItems: 'center',
-      backgroundColor: '#72ba3a',
+      backgroundColor: '#ffffff',
       flex: 1,
       justifyContent: 'center',
     },
@@ -12,5 +12,14 @@ const styles = StyleSheet.create({
       margin: 10,
       textAlign: 'center',
     },
+    touchable: {
+      alignItems: 'center',
+      backgroundColor: '#DDDDDD',
+      borderRadius: 10,
+      paddingBottom: 10,
+      paddingLeft: 30,
+      paddingRight: 30,
+      paddingTop: 10,
+      },
   });
   export default styles;

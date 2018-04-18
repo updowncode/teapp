@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-
-import { Button, Text, View } from 'react-native';
+import { Button, FlatList, Text, View } from 'react-native';
 import { NavigationScreenProp } from 'react-navigation';
+import { APIs } from '../../actions/APIs';
 import styles from './styles';
+
 interface IMainComponentProps {
   navigation: NavigationScreenProp<any, any>;
   signedIn?: boolean;
@@ -14,10 +15,16 @@ export default class HomeComponent extends Component<IMainComponentProps> {
   constructor(props) {
     super(props);
   }
+  reportListArr = [];
   static navigationOptions = ({ navigation }) => {
-    const {params} = navigation.state;
+    const { params } = navigation.state;
     return {
-      headerRight: <Button title="Logout" onPress={() => params.Logout && params.Logout()} />,
+      headerRight: (
+        <Button
+          title="Logout"
+          onPress={() => params.Logout && params.Logout()}
+        />
+      ),
     };
   };
   OnLogout = () => {
@@ -26,15 +33,35 @@ export default class HomeComponent extends Component<IMainComponentProps> {
   componentDidMount() {
     this.props.navigation.setParams({ Logout: () => this.OnLogout() });
   }
+  componentWillMount() {
+    fetch(APIs.GETLIST, {
+      method: 'GET',
+      headers: APIs.HEADERS,
+    })
+      .then(function(response) {
+        return response.text();
+      })
+      .then(function(json) {
+        this.reportListArr = JSON.parse(json);
+      })
+      .catch(function(ex) {
+        this.props.signinMsg = ex.message;
+      });
+  }
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          {this.props.signedIn ? this.props.signinMsg : ''}
-        </Text>
-        <Button
+        {this.props.signinMsg != '' && (
+          <Text style={styles.welcome}>{this.props.signinMsg} </Text>
+        )}
+
+        {/* <Button
           title="Next"
           onPress={() => this.props.navigation.navigate('Counter')}
+        /> */}
+        <FlatList
+          data={this.reportListArr}
+          renderItem={({ item }) => <Text  style={styles.touchable}>{item.name}</Text>}
         />
       </View>
     );

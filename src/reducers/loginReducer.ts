@@ -22,7 +22,7 @@ export const loginReducer = (state = initialState, action: ActionTypes) => {
       return Object.assign({}, state, {
         ...state,
         username: action.payload.username,
-        signinMsg: action.payload.fullname,
+        signinMsg: "",
         signedIn: true,
         loading: false,
       });

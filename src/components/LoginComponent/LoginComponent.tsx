@@ -1,13 +1,25 @@
-import { Body, Button, Container, Content, Footer, Header, Input, Text, Title, View, Icon } from 'native-base';
+import {
+  Body,
+  Button,
+  Container,
+  Content,
+  Footer,
+  Header,
+  Input,
+  Text,
+  Title,
+  View,
+  Icon,
+} from 'native-base';
 import React, { Component } from 'react';
-import { Image, Platform } from 'react-native';
-
+import { ActivityIndicator, Image, Platform } from 'react-native';
+import styles from "./styles";
 export interface ILoginComponent {
   username?: string;
   password?: string;
   loading: boolean;
   signedIn: boolean;
-  signinMsg?:string;
+  signinMsg?: string;
   onUserNameChanged?: (username) => void;
   onPasswordChanged?: (password) => void;
   doLogin?: (username: string, password: string) => void;
@@ -30,13 +42,20 @@ class LoginComponent extends Component<ILoginComponent, AppStates> {
   }
 
   render() {
+    const ActivityIndicatorLoading = this.props.loading;
+    const ShowActivityIndicator = ActivityIndicatorLoading ? (
+      <ActivityIndicator size="large" color="#0000ff" />
+    ) : null;
+
     return (
       <Container>
         <Header style={{ height: 200 }}>
           <Body style={{ alignItems: 'center' }}>
-          < Icon name='document' style={{fontSize: 104, color: 'white'}}/>
+            <Icon name="document" style={{ fontSize: 104, color: 'white' }} />
             {/* <Image source={require('../../../assets/images/te-logo.ico')} style={{ width: 80, height: 80 }} /> */}
-            <Title style={{color: Platform.OS === 'ios' ? '#000' : '#FFF'}}>Daily Report</Title>
+            <Title style={{ color: Platform.OS === 'ios' ? '#000' : '#FFF' }}>
+              Daily Report
+            </Title>
           </Body>
         </Header>
         <Content>
@@ -54,8 +73,7 @@ class LoginComponent extends Component<ILoginComponent, AppStates> {
             value={this.state.password}
             secureTextEntry={true}
           />
-          <Text style={{ fontSize: 18, color: 'red', alignSelf: 'center' }}>
-          </Text>
+          <Text style={{ fontSize: 18, color: 'red', alignSelf: 'center' }} />
           <Button
             block
             onPress={() =>
@@ -64,8 +82,10 @@ class LoginComponent extends Component<ILoginComponent, AppStates> {
           >
             <Text>Login</Text>
           </Button>
-          <Text>{this.props.loading ? "Loading...":""}</Text>
-          <Text>{this.props.signedIn == false ? this.props.signinMsg : ""}</Text>
+          {ShowActivityIndicator}
+          <Text>
+            {this.props.signedIn == false ? this.props.signinMsg : ''}
+          </Text>
           <View padder />
         </Content>
         <Footer style={{ backgroundColor: '#F8F8F8' }}>
