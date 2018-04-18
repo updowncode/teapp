@@ -1,8 +1,6 @@
-import { Dispatch, connect } from 'react-redux';
-import { decrement } from '../actions/counterActions';
-import { signedIn } from '../selectors/counterSelector';
-import IStoreState from '../store/IStoreState';
+import { connect } from 'react-redux';
 import { MainComponent } from '../components/MainComponent/MainComponent';
+import { signedIn } from '../selectors/counterSelector';
 
 const mapStateToProps = (state: any) => ({
   signedIn: signedIn(state),
@@ -10,17 +8,12 @@ const mapStateToProps = (state: any) => ({
   password: state.login.password,
   signinMsg: state.login.signinMsg,
 });
-
-const mapDispatchToProps = (dispatch: Dispatch<IStoreState>) => ({
-  doLogout: () => dispatch(decrement()),
-});
-
 const mergeProps = (
   stateProps: object,
   dispatchProps: object,
   ownProps: object
 ) => ({ ...ownProps, ...stateProps, ...dispatchProps });
 
-export const MainContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(
+export const MainContainer = connect(mapStateToProps, null, mergeProps)(
   MainComponent
 );
