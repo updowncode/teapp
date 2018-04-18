@@ -1,4 +1,3 @@
-//const APIHOST = 'https://b2b.toureast.com';
 const APIHOST = 'http://10.249.239.216:8050'; //then Attach to IIS process
 const HEADERS: any = {
   'Content-Type': 'application/json'
