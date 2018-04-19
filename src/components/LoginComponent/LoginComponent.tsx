@@ -1,4 +1,16 @@
-import { Body, Button, Container, Content, Footer, Header, Icon, Input, Text, Title, View } from 'native-base';
+import {
+  Body,
+  Button,
+  Container,
+  Content,
+  Footer,
+  Header,
+  Icon,
+  Input,
+  Text,
+  Title,
+  View,
+} from 'native-base';
 import React, { Component } from 'react';
 import { ActivityIndicator, Platform } from 'react-native';
 export interface ILoginComponent {
@@ -70,6 +82,7 @@ class LoginComponent extends Component<ILoginComponent, AppStates> {
             <Text>Login</Text>
           </Button>
           {ShowActivityIndicator}
+
           <Text>
             {this.props.signedIn == false ? this.props.signinMsg : ''}
           </Text>

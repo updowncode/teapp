@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import styles from "./styles";
 export interface ICounterProps {
+  navigation:any;
   counter?: number;
   onIncrement?: () => void;
   onDecrement?: () => void;
 }
 
 export default class CounterComponent extends Component<ICounterProps> {
+  componentDidMount() {
+
+    var id = this.props.navigation.state.params.id;
+  }
   render() {
     return (
       <View style={styles.container}>

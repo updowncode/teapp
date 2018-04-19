@@ -4,10 +4,9 @@ export const getMenuItems = () => {
   return (dispatch, getState) => {
     let state = getState();
     if (state.login.username == 'a') {
-      let a = JSON.parse(APIs.datas);
       dispatch({
         type: ActionTypeKeys.MENUITEMS,
-        payload: a,
+        payload: APIs.datas,
       });
     } else {
       fetch(APIs.GETLIST, {
