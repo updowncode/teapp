@@ -5,4 +5,5 @@ export default interface IStoreState {
    password: string;
    signinMsg: string;
    loading: boolean;
+   menuItems:  Array<any>[];
 };

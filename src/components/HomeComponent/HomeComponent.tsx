@@ -1,20 +1,18 @@
+import { Body, Container, Content, Icon, List, ListItem, Text } from 'native-base';
 import React, { Component } from 'react';
-import { Button, FlatList, Text, View } from 'react-native';
+import { Button } from 'react-native';
 import { NavigationScreenProp } from 'react-navigation';
-import { APIs } from '../../actions/APIs';
 import styles from './styles';
 
-interface IMainComponentProps {
+interface IHomeComponentProps {
   navigation: NavigationScreenProp<any, any>;
   signedIn?: boolean;
   signinMsg?: string;
   doLogout?: () => void;
+  doGetMenuItems?: () => void;
+  menuItems?: any;
 }
-interface AppStates {
-  reportListArr: any[];
-
-}
-export default class HomeComponent extends Component<IMainComponentProps,AppStates> {
+export default class HomeComponent extends Component<IHomeComponentProps> {
   constructor(props) {
     super(props);
   }
@@ -23,10 +21,9 @@ export default class HomeComponent extends Component<IMainComponentProps,AppStat
     const { params } = navigation.state;
     return {
       headerRight: (
-        <Button
-          title="Logout"
-          onPress={() => params.Logout && params.Logout()}
-        />
+        <Button title="Logout" onPress={() => params.Logout && params.Logout()}>
+          Logout
+        </Button>
       ),
     };
   };
@@ -35,39 +32,41 @@ export default class HomeComponent extends Component<IMainComponentProps,AppStat
   };
   componentDidMount() {
     this.props.navigation.setParams({ Logout: () => this.OnLogout() });
+    this.props.doGetMenuItems();
   }
-  componentWillMount() {
-    fetch(APIs.GETLIST, {
-      method: 'GET',
-      headers: APIs.HEADERS,
-    })
-      .then(function(response) {
-        return response.text();
-      })
-      .then(function(json) {
-        let a = JSON.parse(json);
-        a.maps(item=>this.state.reportListArr.push(item));
-      })
-      .catch(function(ex) {
-        this.props.signinMsg = ex.message;
-      });
-  }
+  listItems = datas => {
+    return datas.map(data => {
+      return (
+        <ListItem
+          key={data.id}
+          onPress={() => {
+            this.props.navigation.navigate('Counter');
+          }}
+        >
+          <Icon name="document" style={{ fontSize: 80, color: 'white' }} />
+          <Body>
+            <Text>{data.name}</Text>
+            <Text note>
+              {data.name}/{data.name}
+            </Text>
+          </Body>
+        </ListItem>
+      );
+    });
+  };
   render() {
     return (
-      <View style={styles.container}>
-        {this.props.signinMsg != '' && (
-          <Text style={styles.welcome}>{this.props.signinMsg} </Text>
-        )}
-
-        {/* <Button
-          title="Next"
-          onPress={() => this.props.navigation.navigate('Counter')}
-        /> */}
-        <FlatList
-          data={this.state.reportListArr}
-          renderItem={({ item }) => <Text  style={styles.touchable}>{item.name}</Text>}
-        />
-      </View>
+      // <View style={styles.container}></View>
+      <Container>
+        <Content>
+          {this.props.signinMsg != '' && (
+            <Text style={styles.welcome}>{this.props.signinMsg} </Text>
+          )}
+          {this.props.menuItems && (
+            <List>{this.listItems(this.props.menuItems)}</List>
+          )}
+        </Content>
+      </Container>
     );
   }
 }

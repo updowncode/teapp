@@ -5,7 +5,8 @@ enum ActionTypeKeys {
   LOGINSUCCESS = 'LOGINSUCCESS',
   LOGINFAIL = 'LOGINFAIL',
   LOADING = 'LOADING',
-  LOGOUT = 'LOGOUT'
+  LOGOUT = 'LOGOUT',
+  MENUITEMS ='MENUITEMS',
 }
 
 export default ActionTypeKeys;

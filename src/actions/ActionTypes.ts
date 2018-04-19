@@ -26,6 +26,10 @@ export interface ILoadingAction {
 export interface ILogoutAction {
   readonly type: keys.LOGOUT;
 }
+export interface IGetMenuItemsAction {
+  readonly type: keys.MENUITEMS;
+  payload
+}
 type ActionTypes =
   | IDecrementAction
   | IIncrementAction
@@ -33,6 +37,7 @@ type ActionTypes =
   | ILoginSuccessAction
   | ILoginFailAction
   | ILoadingAction
-  | ILogoutAction;
+  | ILogoutAction
+  | IGetMenuItemsAction;
 
 export default ActionTypes;
