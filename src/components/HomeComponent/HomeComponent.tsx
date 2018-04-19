@@ -20,6 +20,7 @@ export default class HomeComponent extends Component<IHomeComponentProps> {
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state;
     return {
+      title: "Report Selection:",
       headerRight: (
         <Button title="Logout" onPress={() => params.Logout && params.Logout()}>
           Logout

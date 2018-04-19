@@ -1,4 +1,4 @@
-import { APIs } from './APIs';
+import APIs from './APIs';
 import ActionTypeKeys from './ActionTypeKeys';
 
 export const getMenuItems = () => {

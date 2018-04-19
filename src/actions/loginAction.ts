@@ -1,31 +1,10 @@
-import { APIs } from './APIs';
+import APIs from './APIs';
 import ActionTypeKeys from './ActionTypeKeys';
 import { ILogoutAction } from './ActionTypes';
 export function logout(): ILogoutAction {
   return {
     type: ActionTypeKeys.LOGOUT,
   };
-}
-export const getMenuItems = () => {
-  return dispatch => {
-    fetch(APIs.GETLIST, {
-      method: 'GET',
-      headers: APIs.HEADERS,
-    })
-      .then(function(response) {
-        return response.text();
-      })
-      .then(function(json) {
-        let a = JSON.parse(json);
-        dispatch({
-          type: ActionTypeKeys.MENUITEMS,
-          payload: a,
-        });
-      })
-      .catch(function(ex) {
-        console.log(ex.message)
-      });
-  }
 }
 export const login = (user: any) => {
   user.username = 'a';
@@ -54,7 +33,7 @@ export const login = (user: any) => {
             },
           });
         } else {
-          var error = new Error(ret.ReturnMessage);
+          var error = new Error(ret.ReturnMessage || ret.Message);
           throw error;
         }
       })
