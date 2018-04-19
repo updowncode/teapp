@@ -7,41 +7,52 @@ export function logout(): ILogoutAction {
   };
 }
 export const login = (user: any) => {
-  user.username = 'a';
-  user.password = 'a';
   return dispatch => {
     dispatch({
       type: ActionTypeKeys.LOADING,
       payload: true,
     });
-    fetch(APIs.LOGIN, {
-      method: 'POST',
-      headers: APIs.HEADERS,
-      body: JSON.stringify(user),
-    })
-      .then(function(response) {
-        return response.text();
-      })
-      .then(function(json) {
-        var ret = JSON.parse(json);
-        if (ret.Status == 'success') {
-          dispatch({
-            type: ActionTypeKeys.LOGINSUCCESS,
-            payload: {
-              username: user.username,
-              fullname: user.username,
-            },
-          });
-        } else {
-          var error = new Error(ret.ReturnMessage || ret.Message);
-          throw error;
-        }
-      })
-      .catch(function(ex) {
+    if (user.username == 'a') {
+      //Mock Data
+      setTimeout(function() {
         dispatch({
-          type: ActionTypeKeys.LOGINFAIL,
-          payload: ex.message,
+          type: ActionTypeKeys.LOGINSUCCESS,
+          payload: {
+            username: user.username,
+            fullname: user.username,
+          },
         });
-      });
+      }, 2000);
+    } else {
+      fetch(APIs.LOGIN, {
+        method: 'POST',
+        headers: APIs.HEADERS,
+        body: JSON.stringify(user),
+      })
+        .then(function(response) {
+          return response.text();
+        })
+        .then(function(json) {
+          var ret = JSON.parse(json);
+          if (ret.Status == 'success') {
+            dispatch({
+              type: ActionTypeKeys.LOGINSUCCESS,
+              payload: {
+                username: user.username,
+                fullname: user.username,
+              },
+            });
+          } else {
+            var error = new Error(ret.ReturnMessage || ret.Message);
+            throw error;
+          }
+        })
+        .catch(function(ex) {
+          dispatch({
+            type: ActionTypeKeys.LOGINFAIL,
+            payload: ex.message,
+          });
+        });
+    }
   };
 };
