@@ -6,7 +6,8 @@ const defaultState: IStoreState = {
   username: '',
   password: '',
   signinMsg:"",
-  loading: false
+  loading: false,
+  menuItems: [],
 };
 
 export default defaultState;
