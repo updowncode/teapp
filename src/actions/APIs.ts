@@ -1,5 +1,4 @@
 const APIHOST = 'http://10.249.239.216:8050';
-// const APIHOST = 'https://b2b.toureast.com';
 const HEADERS: any = {
   'Content-Type': 'application/json',
 };
@@ -7,7 +6,7 @@ const HEADERS: any = {
 const datas = [
   {
     id: 0,
-    name: 'Air Report',
+    name: 'Fruits Report',
     description: '2018-04-01 —— 2018-04-30',
   },
   { id: 1, name: 'Custom Report 1', description: 'Custom  report for Air' },
