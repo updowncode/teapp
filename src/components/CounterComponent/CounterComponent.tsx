@@ -10,7 +10,6 @@ export interface ICounterProps {
 
 export default class CounterComponent extends Component<ICounterProps> {
   componentDidMount() {
-
     var id = this.props.navigation.state.params.id;
   }
   render() {

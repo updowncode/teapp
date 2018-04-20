@@ -1,6 +1,6 @@
 import { Body, Container, Content, Icon, List, ListItem, Text } from 'native-base';
 import React, { Component } from 'react';
-import { Button,TouchableOpacity } from 'react-native';
+import { Button } from 'react-native';
 import { NavigationScreenProp } from 'react-navigation';
 import styles from './styles';
 
