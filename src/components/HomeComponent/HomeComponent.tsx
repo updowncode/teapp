@@ -40,7 +40,7 @@ export default class HomeComponent extends Component<IHomeComponentProps> {
         <ListItem
           key={itemData.id}
           onPress={() => {
-            this.props.navigation.navigate('Counter', itemData);
+            this.props.navigation.navigate('Chart', itemData);
           }}
         >
           <Icon name="ios-log-out" style={{ fontSize: 40 }} />

@@ -4,7 +4,7 @@ import IStoreState from '../../store/IStoreState';
 import { StackNavigator } from 'react-navigation';
 import { CounterContainer } from '../../containers/CounterContainer';
 import { HomeContainer } from '../../containers/HomeContainer';
-
+import { ChartContainer } from '../../containers/ChartContainer';
 export const MainStackNavigator = StackNavigator(
   {
     Home: {
@@ -13,6 +13,9 @@ export const MainStackNavigator = StackNavigator(
     Counter: {
       screen: CounterContainer,
     },
+    Chart:{
+      screen:ChartContainer,
+    }
   },
   {
     initialRouteName: 'Home',
