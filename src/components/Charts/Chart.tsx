@@ -1,6 +1,6 @@
 import Echarts from 'native-echarts';
 import React, { Component } from 'react';
-import { Text, View, Dimensions } from 'react-native';
+import { WebView, Text, View, Dimensions, Platform  } from 'react-native';
 import styles from './styles';
 const { width } = Dimensions.get('window');
 interface chartProps {
