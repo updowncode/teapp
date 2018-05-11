@@ -23,11 +23,11 @@ export interface ILoginComponent {
   onPasswordChanged?: (password) => void;
   doLogin?: (username: string, password: string) => void;
 }
-export interface AppStates {
+export interface ILoginStates {
   username: string;
   password: string;
 }
-class LoginComponent extends Component<ILoginComponent, AppStates> {
+class LoginComponent extends Component<ILoginComponent, ILoginStates> {
   constructor(props) {
     super(props);
     this.onLogin = this.onLogin.bind(this);
