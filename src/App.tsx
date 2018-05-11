@@ -7,7 +7,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <MainContainer />
-    </Provider>
+    </Provider> 
   )
 }
 export default App;
