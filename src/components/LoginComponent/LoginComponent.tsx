@@ -94,7 +94,7 @@ class LoginComponent extends Component<ILoginComponent, AppStates> {
           >
             <View padder>
               <Text style={{ color: '#000', fontSize: 12 }}>
-                ©Copyright 2018 Tour East Holidays (Canada) Inc.
+                ©Copyright 2018
               </Text>
             </View>
           </View>
