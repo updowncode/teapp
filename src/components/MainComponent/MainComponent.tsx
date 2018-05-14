@@ -5,6 +5,7 @@ import { StackNavigator } from 'react-navigation';
 import { CounterContainer } from '../../containers/CounterContainer';
 import { HomeContainer } from '../../containers/HomeContainer';
 import { ChartContainer } from '../../containers/ChartContainer';
+import { NavigationScreenProp } from 'react-navigation';
 export const MainStackNavigator = StackNavigator(
   {
     Home: {
@@ -21,17 +22,20 @@ export const MainStackNavigator = StackNavigator(
     initialRouteName: 'Home',
   }
 );
-interface IMainContainer {
-  signedIn?: boolean;
-  username?: string;
-  signinMsg?: string;
+interface IProps {
+  navigation:any;
+   signedIn?: boolean;
+  // username?: string;
+  // signinMsg?: string;
 }
 
-export class MainComponent extends Component<IMainContainer, IStoreState> {
+export class MainComponent extends Component<IProps, IStoreState> {
+  static navigationOptions = { title: '', header: null };
   render() {
     if (!this.props.signedIn) {
       return <LoginContainer />;
     }
-    return <MainStackNavigator />;
+    //return <MainStackNavigator />;
+     return <HomeContainer />;
   }
 }

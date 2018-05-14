@@ -30,7 +30,7 @@ export default class Chart extends Component<chartProps,chartStats> {
       },
       //可以手动选择现实几个图标
       legend: {
-        data: ['苹果', '橘子'],
+        data: ['Air', 'Tour'],
       },
       //各种表格
       toolbox: {
@@ -59,7 +59,7 @@ export default class Chart extends Component<chartProps,chartStats> {
       yAxis: [
         {
           type: 'value',
-          name: '销量(kg)',
+          name: 'Order',
         },
       ],
       //图形的颜色组
@@ -67,13 +67,13 @@ export default class Chart extends Component<chartProps,chartStats> {
       //需要显示的图形名称，类型，以及数据设置
       series: [
         {
-          name: '苹果',
+          name: 'Air',
           //默认显
           type: 'bar',
           data: this.state.apple,
         },
         {
-          name: '橘子',
+          name: 'Tour',
           type: 'bar',
           data: this.state.organ,
         },
@@ -82,7 +82,7 @@ export default class Chart extends Component<chartProps,chartStats> {
     return (
         <View style={styles.container}>
           <View style={styles.titleView}>
-            <Text style={styles.title}>每月苹果橘子销量统计图</Text>
+            <Text style={styles.title}>Air and Tour</Text>
           </View>
   
           <Echarts option={option} height={300} width={width} />

@@ -6,7 +6,7 @@ const HEADERS: any = {
 const datas = [
   {
     id: 0,
-    name: 'Fruits Report',
+    name: 'Monthly Report',
     description: '2018-04-01 —— 2018-04-30',
   },
   { id: 1, name: 'Custom Report 1', description: 'Custom  report for Air' },

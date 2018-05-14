@@ -13,7 +13,7 @@ import {
 } from 'native-base';
 import React, { Component } from 'react';
 import { ActivityIndicator, Platform } from 'react-native';
-export interface ILoginComponent {
+export interface IProps {
   username?: string;
   password?: string;
   loading: boolean;
@@ -23,19 +23,23 @@ export interface ILoginComponent {
   onPasswordChanged?: (password) => void;
   doLogin?: (username: string, password: string) => void;
 }
-export interface ILoginStates {
+export interface IStates {
   username: string;
   password: string;
 }
-class LoginComponent extends Component<ILoginComponent, ILoginStates> {
+class LoginComponent extends Component<IProps, IStates> {
   constructor(props) {
     super(props);
     this.onLogin = this.onLogin.bind(this);
     this.state = {
-      username: this.props.username,
-      password: this.props.password,
+      // username: this.props.username,
+      // password: this.props.password,
+      username: 'a',
+      password: 'a',
     };
   }
+  static navigationOptions = { title: '', header: null };
+
   onLogin(username, password) {
     this.props.doLogin(username, password);
   }

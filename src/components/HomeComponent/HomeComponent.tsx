@@ -4,39 +4,40 @@ import { Button } from 'react-native';
 import { NavigationScreenProp } from 'react-navigation';
 import styles from './styles';
 
-interface IHomeComponentProps {
-  navigation: NavigationScreenProp<any, any>;
+interface IProps {
+  navigation: NavigationScreenProp<any,any>;
   signedIn?: boolean;
   signinMsg?: string;
   doLogout?: () => void;
   doGetMenuItems?: () => void;
   menuItems?: any;
 }
-export default class HomeComponent extends Component<IHomeComponentProps> {
+export default class HomeComponent extends Component<IProps> {
   constructor(props) {
     super(props);
   }
-
-  static navigationOptions = ({ navigation }) => {
-    const { params } = navigation.state;
-    return {
-      title: "Report Selection:",
-      headerRight: (
-        <Button title="Logout" onPress={() => params.Logout && params.Logout()} />
-      ),
-    };
-  };
+  static navigationOptions = { title: '', header: null };
+  // static navigationOptions = ({ navigation }) => {
+  //   const { params } = navigation.state;
+  //   return {
+  //     title: "Report Selection:",
+  //     headerRight: (
+  //       <Button title="Logout" onPress={() => params.Logout && params.Logout()} />
+  //     ),
+  //   };
+  // }; 
 
   OnLogout = () => {
     this.props.doLogout();
   };
   componentDidMount() {
-    this.props.navigation.setParams({ Logout: () => this.OnLogout() });
+//    this.props.navigation.setParams({ Logout: () => this.OnLogout() });
     this.props.doGetMenuItems();
   }
   listItems = datas => {
     return datas.map(itemData => {
       return (
+       
         <ListItem
           key={itemData.id}
           onPress={() => {
@@ -57,7 +58,9 @@ export default class HomeComponent extends Component<IHomeComponentProps> {
   render() {
     return (
       <Container>
+
         <Content>
+        <Button title="Logout" onPress={() => {this.props.doLogout()}} />
           {this.props.signinMsg != '' && (
             <Text style={styles.welcome}>{this.props.signinMsg} </Text>
           )}
