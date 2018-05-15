@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Animated, Dimensions } from 'react-native';
 import { MainContainer } from '../../containers/MainContainer';
 import { StackNavigator } from 'react-navigation';
 import GuideView from './GuideViewComponent';
-import GetSetStorge from '../../utils/LocalStorge';
+import GetSetStorge from '../../Utils/LocalStorge';
 import { NavigationScreenProp } from 'react-navigation';
 const splashImg = require('../../../assets/images/flashloading.png');
 const { width, height } = Dimensions.get('window');

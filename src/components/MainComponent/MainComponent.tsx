@@ -35,7 +35,6 @@ export class MainComponent extends Component<IProps, IStoreState> {
     if (!this.props.signedIn) {
       return <LoginContainer />;
     }
-    //return <MainStackNavigator />;
-     return <HomeContainer />;
+    return <MainStackNavigator />;
   }
 }
