@@ -1,9 +1,6 @@
 import * as React from 'react';
 import { Component } from 'react';
-import { View, Text, StyleSheet, Animated, Dimensions } from 'react-native';
-import { MainContainer } from '../../containers/MainContainer';
-import { StackNavigator } from 'react-navigation';
-import GuideView from './GuideViewComponent';
+import { StyleSheet, Animated, Dimensions } from 'react-native';
 import GetSetStorge from '../../Utils/LocalStorge';
 import { NavigationScreenProp } from 'react-navigation';
 const splashImg = require('../../../assets/images/flashloading.png');
@@ -15,7 +12,6 @@ export interface IStates {
   bounceValue: Animated.Value;
   timer: any;
 }
-//http://www.cnblogs.com/gdsblog/p/7406660.html
 export default class Splash extends Component<IProps, IStates> {
   constructor(props) {
     super(props);
@@ -35,8 +31,8 @@ export default class Splash extends Component<IProps, IStates> {
         new GetSetStorge().setStorgeAsync('isFrist', 'true');
 
       } else {
-        this.props.navigation.navigate('MainContainer');
-
+       // this.props.navigation.navigate('MainContainer');
+        this.props.navigation.navigate('TabNavContainer');
       }
     })
     .catch(error => {
