@@ -1,12 +1,20 @@
 import * as React from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  Image,
+  BackHandler,
+  ToastAndroid,
+} from 'react-native';
 import { connect } from 'react-redux';
-import TabNavigator  from 'react-native-tab-navigator';
-
+import TabNavigator from 'react-native-tab-navigator';
+import { NavigationScreenProp } from 'react-navigation';
 import AirTab from '../components/TabsComponents/AirTabComponent';
 import TourTab from '../components/TabsComponents/TourTabComponent';
 import OrderTab from '../components/TabsComponents/OrderTabComponent';
 import ProfileTab from '../components/TabsComponents/ProfileTabComponent';
+import { NavigationActions } from 'react-navigation';
 export interface IState {
   selectedTab?: any;
 }
@@ -14,16 +22,35 @@ export interface IState {
 export interface IProps {
   // route: any;
   // navigator:any;
+  navigation: NavigationScreenProp<any, any>;
 }
-
+// const resetAction = NavigationActions.reset({
+//   index: 0,
+//   actions: [NavigationActions.navigate({ routeName: 'TabNavContainer' })],
+// });
 class TabNavComponent extends React.Component<IProps, IState> {
   constructor(props) {
     super(props);
     this.state = {
-        selectedTab: 'Home'
-      };
+      selectedTab: 'air',
+    };
+    //this.props.navigation.dispatch(resetAction);
   }
+
   static navigationOptions = { title: '', header: null };
+  componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackButton);
+  }
+
+  handleBackButton() {
+    ToastAndroid.show('Back button is pressed', ToastAndroid.SHORT);
+    return true;
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -31,7 +58,7 @@ class TabNavComponent extends React.Component<IProps, IState> {
           <TabNavigator.Item
             selected={this.state.selectedTab == 'air'}
             title="Flight"
-            selectedTitleStyle={{ color: '#333333' }}
+            selectedTitleStyle={{ color: '#FF0000' }}
             renderIcon={() => (
               <Image
                 style={styles.tabIcon}
@@ -47,12 +74,12 @@ class TabNavComponent extends React.Component<IProps, IState> {
             // badgeText="1"
             onPress={() => this.setState({ selectedTab: 'air' })}
           >
-           <AirTab />
+            <AirTab />
           </TabNavigator.Item>
           <TabNavigator.Item
             selected={this.state.selectedTab == 'tour'}
             title="Tour"
-            selectedTitleStyle={{ color: '#333333' }}
+            selectedTitleStyle={{ color: '#FF0000' }}
             renderIcon={() => (
               <Image
                 style={styles.tabIcon}
@@ -68,12 +95,12 @@ class TabNavComponent extends React.Component<IProps, IState> {
             // badgeText="1"
             onPress={() => this.setState({ selectedTab: 'tour' })}
           >
-           <TourTab />
+            <TourTab />
           </TabNavigator.Item>
           <TabNavigator.Item
             selected={this.state.selectedTab == 'order'}
             title="Order"
-            selectedTitleStyle={{ color: '#333333' }}
+            selectedTitleStyle={{ color: '#FF0000' }}
             renderIcon={() => (
               <Image
                 style={styles.tabIcon}
@@ -89,19 +116,21 @@ class TabNavComponent extends React.Component<IProps, IState> {
             // badgeText="1"
             onPress={() => this.setState({ selectedTab: 'order' })}
           >
-           <OrderTab />
+            <OrderTab />
           </TabNavigator.Item>
           <TabNavigator.Item
             selected={this.state.selectedTab === 'profile'}
             title="My Account"
-            selectedTitleStyle={{ color: '#333333' }}
+            selectedTitleStyle={{ color: '#FF0000' }}
             renderIcon={() => (
-              <Image  style={styles.tabIcon}
+              <Image
+                style={styles.tabIcon}
                 source={require('../../assets/images/tab/tab_contact_n.png')}
               />
             )}
             renderSelectedIcon={() => (
-              <Image  style={styles.tabIcon}
+              <Image
+                style={styles.tabIcon}
                 source={require('../../assets/images/tab/tab_contact_p.png')}
               />
             )}

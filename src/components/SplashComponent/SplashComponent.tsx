@@ -25,9 +25,9 @@ export default class Splash extends Component<IProps, IStates> {
     new GetSetStorge()
     .getStorgeAsync('isFrist')
     .then(result => {
-      if (result == null || result == '') {
-        this.props.navigation.navigate('GuideView');
-
+      if (result == null || result == '') {// || result == 'true'
+        // this.props.navigation.navigate('GuideView');
+          this.props.navigation.navigate('SwiperGuide');
         new GetSetStorge().setStorgeAsync('isFrist', 'true');
 
       } else {

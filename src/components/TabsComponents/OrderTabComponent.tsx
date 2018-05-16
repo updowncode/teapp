@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, StyleSheet, Text, } from 'react-native';
+import { View, Text, } from 'react-native';
 // const image1 = require('../../../assets/images/guide1.png');
 // const image2 = require('../../../assets/images/guide2.png');
 // const image3 = require('../../../assets/images/guide3.png');

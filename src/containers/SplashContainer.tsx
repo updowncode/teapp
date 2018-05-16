@@ -5,6 +5,7 @@ import { CounterContainer } from '../containers/CounterContainer';
 import { HomeContainer } from '../containers/HomeContainer';
 import { ChartContainer } from '../containers/ChartContainer';
 import { LoginContainer } from '../containers/LoginContainer';
+import SwiperGuide from '../components/SplashComponent/SwiperGuideComponent';
 import { MainContainer } from './MainContainer';
 import TabNavContainer from './TabNavContainer';
 import GuideView from '../components/SplashComponent/GuideViewComponent';
@@ -12,6 +13,9 @@ import Splash from '../components/SplashComponent/SplashComponent';
 
 export const SplashStackNavigator = StackNavigator(
     {
+      SwiperGuide:{
+        screen: SwiperGuide,
+      },
       GuideView: {
         screen: GuideView,
       },
