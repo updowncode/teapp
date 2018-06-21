@@ -1,5 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
-const s = 1;
+const s = 2;
 const deviceHeight = Dimensions.get("window").height;
 
 const styles: any = StyleSheet.create({
